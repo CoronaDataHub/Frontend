@@ -1,0 +1,26 @@
+{
+  "send_data": {
+    "navbar_button_text": "Send us your data api"
+  },
+  "language": "Language",
+  "languages": {
+    "de": "German",
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French"
+  },
+  "home": {
+    "tabs": {
+      "live_data": "Aktuelle Daten",
+      "rki": "RKI (Auch Landkreise, jedoch ein Tag versetzt)",
+      "risk_locations": "Risiko Standorte"
+    }
+  },
+  "htmlmarker": {
+    "infected": "Infected",
+    "sick": "Currently sick",
+    "recovered": "Cured",
+    "dead": "Died",
+    "last_update": "Last updated"
+  }
+}
