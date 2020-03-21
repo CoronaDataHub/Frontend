@@ -11,9 +11,9 @@
   },
   "home": {
     "tabs": {
-      "live_data": "Aktuelle Daten",
-      "rki": "RKI (Auch Landkreise, jedoch ein Tag versetzt)",
-      "risk_locations": "Risiko Standorte"
+      "live_data": "Données actuelles",
+      "rki": "Des données plus précises en provenance d'Allemagne, mais un jour plus tard (RKI)",
+      "risk_locations": "Lieux à risque"
     }
   },
   "htmlmarker": {
