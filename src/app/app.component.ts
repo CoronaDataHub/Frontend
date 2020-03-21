@@ -10,7 +10,6 @@ import {environment} from '../environments/environment';
 })
 export class AppComponent {
 
-
   constructor(
     public translate: TranslateService,
     public cookieService: CookieService) {
