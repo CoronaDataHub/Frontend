@@ -14,12 +14,12 @@ export class AppComponent {
   constructor(
     public translate: TranslateService,
     public cookieService: CookieService) {
-    translate.addLangs(['de', 'en', 'fr', 'es']);
+    translate.addLangs(['de', 'en']);
     translate.setDefaultLang('de');
 
     if(!this.cookieService.get("lang")){
       const browserLang = translate.getBrowserLang();
-      translate.use(browserLang.match(/de|en|fr|es/) ? browserLang : 'en');
+      translate.use(browserLang.match(/de|en/) ? browserLang : 'en');
 
       return;
     }
