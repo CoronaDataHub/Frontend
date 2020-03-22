@@ -25,6 +25,13 @@
     "no_data": "No data found!"
 
   },
+  "html_rki_marker": {
+    "death_rate": "Death rate",
+    "cases": "Cases",
+    "deaths": "Died",
+    "cases_per_100k": "Patients per 100,000 inhabitants",
+    "cases_per_population": "Patients per population"
+  },
   "footer": {
     "imprint": "Imprint",
     "privacy_policy": "Privacy Policy"

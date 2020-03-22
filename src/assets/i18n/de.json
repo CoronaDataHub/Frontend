@@ -24,6 +24,13 @@
     "last_update": "Zuletzt aktualisiert",
     "no_data": "Keine Daten gefunden!"
   },
+  "html_rki_marker": {
+    "death_rate": "Todesrate",
+    "cases": "Fälle",
+    "deaths": "Gestorben",
+    "cases_per_100k": "Erkrankte pro 100.000 Einwohner",
+    "cases_per_population": "Erkrankte pro Einwohner"
+  },
   "footer": {
     "imprint": "Impressum",
     "privacy_policy": "Datenschutz"
