@@ -25,6 +25,9 @@ import {CookieService} from 'ngx-cookie-service';
 import { HomeComponent } from './home/home.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ImpressumComponent } from './impressum/impressum.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -37,6 +40,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LiveDataComponent,
     HTMLMarkerComponent,
     HomeComponent,
+    ImpressumComponent,
+    DatenschutzComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +55,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AngularOpenlayersModule,
     HttpClientModule,
     LeafletModule,
+    NgbModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

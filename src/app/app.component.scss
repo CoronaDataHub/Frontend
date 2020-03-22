@@ -3,3 +3,39 @@
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
+
+.footer {
+  text-align: center;
+  padding: 15px;
+
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    outline: none;
+  }
+
+  span:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  span:not(:first-child) {
+    cursor: pointer;
+    margin-left: 10px;
+  }
+}
+
+.main-logo {
+  width: 40px;
+}
+
+.site-title {
+  margin-left: 30px;
+}
+
+.main-logo, .site-title {
+  outline: none;
+  cursor: pointer;
+}

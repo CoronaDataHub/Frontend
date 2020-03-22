@@ -10,6 +10,8 @@ import {environment} from '../environments/environment';
 })
 export class AppComponent {
 
+  usersLanguage = "de";
+
   constructor(
     public translate: TranslateService,
     public cookieService: CookieService) {
@@ -19,18 +21,21 @@ export class AppComponent {
     if(!this.cookieService.get("lang")){
       const browserLang = translate.getBrowserLang();
       translate.use(browserLang.match(/de|en/) ? browserLang : 'en');
+      this.usersLanguage = browserLang.match(/de|en/) ? browserLang : 'en';
 
       return;
     }
 
     this.translate.use(this.cookieService.get("lang"));
+    this.usersLanguage = this.cookieService.get("lang");
   }
 
-  title = 'Corona DataHub';
+  title = 'Corona-DataHub';
 
   changeLanguage(event) {
     document.cookie = "lang="+event.value;
 
     this.translate.use(event.value);
+    this.usersLanguage = event.value;
   }
 }

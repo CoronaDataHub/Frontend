@@ -1,20 +1,24 @@
 <mat-toolbar color="primary">
-  <span routerLink="/">{{title}}</span>
+  <img routerLink="/" class="main-logo" src="./assets/icons/datahub-logo.png">
+  <span class="site-title" routerLink="/">{{title}}</span>
 
   <!-- This fills the remaining space of the current row -->
   <span class="own-navbar-right-align"></span>
   <mat-form-field >
     <mat-label>{{'language' | translate}}</mat-label>
-    <mat-select (selectionChange)="changeLanguage($event)">
+    <mat-select (selectionChange)="changeLanguage($event)" [value]="usersLanguage">
       <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">
-        {{'languages.'+lang | translate}}
+        {{'languages.' + lang | translate}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <button mat-button routerLink="/send-data">{{ 'send_data.navbar_button_text' | translate}}</button>
+  <button style="margin-left: 20px;" mat-button routerLink="/send-data">{{ 'send_data.navbar_button_text' | translate}}</button>
 
 </mat-toolbar>
 
-
 <router-outlet></router-outlet>
+
+<div class="footer">
+  <span>© 2020 Corona-Datahub</span> | <span routerLink="/impressum">{{ 'footer.imprint' | translate }}</span> | <span routerLink="/datenschutz">{{ 'footer.privacy_policy' | translate }}</span>
+</div>

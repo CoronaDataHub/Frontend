@@ -22,5 +22,9 @@
     "recovered": "Geheilt",
     "dead": "Gestorben",
     "last_update": "Zuletzt aktualisiert"
+  },
+  "footer": {
+    "imprint": "Impressum",
+    "privacy_policy": "Datenschutz"
   }
 }
