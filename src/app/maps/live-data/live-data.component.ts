@@ -17,7 +17,7 @@ interface MarkerMetaData {
   styleUrls: ['./live-data.component.sass'],
 
 })
-export class LiveDataComponent implements OnInit, DoCheck{
+export class LiveDataComponent implements OnInit, DoCheck {
   ngOnInit(): void {
     // change detection on them.
     this.markers.forEach(entry => {
@@ -37,19 +37,24 @@ export class LiveDataComponent implements OnInit, DoCheck{
     center: latLng(51.165691, 10.451526)
   };
 
-  constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector){}
+  constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector) {
+  }
 
   onMapReady(map) {
     // get a local reference to the map as we need it later
     this.map = map;
-    this.addMarker();
+    this.dataService.getData().subscribe((data: any) => {
+      this.markers = data;
+      this.addMarker();
+
+    });
 
   }
 
   addMarker() {
     // simply iterate over the array of markers from our data service
     // and add them to the map
-    for(const entry of this.dataService.getMarkers()) {
+    for (const entry of this.dataService.getMarkers()) {
       // dynamically instantiate a HTMLMarkerComponent
       const factory = this.resolver.resolveComponentFactory(HTMLMarkerComponent);
 
@@ -72,7 +77,7 @@ export class LiveDataComponent implements OnInit, DoCheck{
 
       let test = Icon.extend({
         options: {
-          iconUrl: "./assets/marker-icon.png",
+          iconUrl: './assets/marker-icon.png',
 
         }
       });
@@ -121,7 +126,7 @@ export class LiveDataComponent implements OnInit, DoCheck{
     // change detection on them.
     this.markers.forEach(entry => {
       entry.componentInstance.changeDetectorRef.detectChanges();
-    })
+    });
   }
 
 
