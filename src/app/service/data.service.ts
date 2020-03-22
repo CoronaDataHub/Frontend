@@ -26,10 +26,7 @@ export class DataService {
   }
 
   getData(){
-    return this.http.get(environment.backendHost+"/api/v1/coronavirusapp/getPlaces", {headers:  new HttpHeaders({
-        'x-api-key': environment.apiKey,
-        'Content-Type':  'application/json',
-      })})
+    return this.http.get(environment.backendHost+"/api/v1/coronavirusapp/getPlaces?apikey="+environment.apiKey);
   }
 
   getMarkerById(id) {

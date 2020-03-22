@@ -26,7 +26,7 @@ export class LiveDataComponent implements OnInit, DoCheck {
 
 
   }
-
+  loaded = false;
   map;
   markers: MarkerMetaData[] = [];
   options = {
@@ -45,6 +45,7 @@ export class LiveDataComponent implements OnInit, DoCheck {
     this.map = map;
     this.dataService.getData().subscribe((data: any) => {
       this.markers = data;
+      this.loaded = true;
       this.addMarker();
 
     });
@@ -124,9 +125,12 @@ export class LiveDataComponent implements OnInit, DoCheck {
   ngDoCheck() {
     // since our components are dynamic, we need to manually iterate over them and trigger
     // change detection on them.
-    this.markers.forEach(entry => {
-      entry.componentInstance.changeDetectorRef.detectChanges();
-    });
+    // if(this.loaded){
+    //   this.markers.forEach(entry => {
+    //     entry.componentInstance.changeDetectorRef.detectChanges();
+    //   });
+    // }
+
   }
 
 
