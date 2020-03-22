@@ -31,6 +31,7 @@ import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { RkiMapsComponent } from './maps/rki-maps/rki-maps.component';
 import { HtmlRkiMarkerComponent } from './html-rki-marker/html-rki-marker.component';
 import { RiskLocationsComponent } from './risk-locations/risk-locations.component';
+import { CreditsComponent } from './credits/credits.component';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         RkiMapsComponent,
         HtmlRkiMarkerComponent,
         RiskLocationsComponent,
+        CreditsComponent,
     ],
   imports: [
     BrowserModule,
