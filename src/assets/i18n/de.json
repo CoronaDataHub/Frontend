@@ -2,6 +2,8 @@
   "send_data": {
     "navbar_button_text": "Sende uns deine Daten-API"
   },
+  "risk_locations": "Risiko Gebiete",
+  "risk_description": "Diese Funktion wird noch hinzugefügt!",
   "language": "Sprache",
   "languages": {
     "de": "Deutsch",
@@ -12,7 +14,7 @@
   "home": {
     "tabs": {
       "live_data": "Aktuelle Daten",
-      "rki": "RKI (Auch Landkreise, jedoch ein Tag versetzt)",
+      "rki": "Genauere Daten aus Deutschland, jedoch ein Tag versetzt (RKI)",
       "risk_locations": "Risiko Standorte"
     }
   },
@@ -21,6 +23,18 @@
     "sick": "Derzeit erkrankt",
     "recovered": "Geheilt",
     "dead": "Gestorben",
-    "last_update": "Zuletzt aktualisiert"
+    "last_update": "Zuletzt aktualisiert",
+    "no_data": "Keine Daten gefunden!"
+  },
+  "html_rki_marker": {
+    "death_rate": "Todesrate",
+    "cases": "Fälle",
+    "deaths": "Gestorben",
+    "cases_per_100k": "Erkrankte pro 100.000 Einwohner",
+    "cases_per_population": "Erkrankte pro Einwohner"
+  },
+  "footer": {
+    "imprint": "Impressum",
+    "privacy_policy": "Datenschutz"
   }
 }

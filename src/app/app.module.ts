@@ -23,6 +23,15 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {CookieService} from 'ngx-cookie-service';
 import { HomeComponent } from './home/home.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { ImpressumComponent } from './impressum/impressum.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DatenschutzComponent } from './datenschutz/datenschutz.component';
+import { RkiMapsComponent } from './maps/rki-maps/rki-maps.component';
+import { HtmlRkiMarkerComponent } from './html-rki-marker/html-rki-marker.component';
+import { RiskLocationsComponent } from './risk-locations/risk-locations.component';
+import { CreditsComponent } from './credits/credits.component';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -30,12 +39,19 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 // @ts-ignore
 // @ts-ignore
 @NgModule({
-  declarations: [
-    AppComponent,
-    LiveDataComponent,
-    HTMLMarkerComponent,
-    HomeComponent,
-  ],
+    declarations: [
+        AppComponent,
+        LiveDataComponent,
+        HTMLMarkerComponent,
+        HomeComponent,
+        ImpressumComponent,
+        DatenschutzComponent,
+        RkiMapsComponent,
+        RkiMapsComponent,
+        HtmlRkiMarkerComponent,
+        RiskLocationsComponent,
+        CreditsComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,6 +64,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AngularOpenlayersModule,
     HttpClientModule,
     LeafletModule,
+    NgbModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -57,8 +74,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     MatFormFieldModule,
     MatSelectModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  entryComponents: [HTMLMarkerComponent],
+  entryComponents: [HTMLMarkerComponent, HtmlRkiMarkerComponent],
   providers: [DataService, CookieService],
   bootstrap: [AppComponent]
 })

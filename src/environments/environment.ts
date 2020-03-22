@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  host: "http://localhost:4200"
+  host: "http://localhost:4200",
+  backendHost: "https://backend.services.corona-datahub.com",
+  apiKey: "n4G3KSD5lFmFSn4G3KSD5lFmFS"
 
 };
 

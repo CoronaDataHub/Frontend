@@ -1,8 +1,12 @@
 <h3>{{ data.name }}</h3>
-<p>
-  {{'htmlmarker.infected' | translate}}: <strong>{{data.dataHistories[data.dataHistories.length - 1].infected}}</strong><br>
-  {{'htmlmarker.sick' | translate}}: <strong>{{data.dataHistories[data.dataHistories.length - 1].sick}}</strong><br>
-  {{'htmlmarker.recovered' | translate}}: <strong>{{data.dataHistories[data.dataHistories.length - 1].recovered}}</strong><br>
-  {{'htmlmarker.dead' | translate}}: <strong>{{data.dataHistories[data.dataHistories.length - 1].dead}}</strong><br>
-  {{'htmlmarker.last_update' | translate}}: <strong>{{data.lastUpdated | date: 'dd.MM.yyyy - H:mm:ss'}}</strong>
+<p *ngIf="data.dataHistories === undefined || data.dataHistories === null || data.dataHistories.length < 1">
+  {{ 'no_data' | translate }}
+</p>
+
+<p *ngIf="data.dataHistories != null">
+  {{'htmlmarker.infected' | translate}}: <strong>{{data?.dataHistories[data?.dataHistories?.length - 1].infected}}</strong><br>
+  {{'htmlmarker.sick' | translate}}: <strong>{{data?.dataHistories[data?.dataHistories?.length - 1].sick}}</strong><br>
+  {{'htmlmarker.recovered' | translate}}: <strong>{{data?.dataHistories[data?.dataHistories?.length - 1].recovered}}</strong><br>
+  {{'htmlmarker.dead' | translate}}: <strong>{{data?.dataHistories[data?.dataHistories?.length - 1].dead}}</strong><br>
+  {{'htmlmarker.last_update' | translate}}: <strong>{{data?.lastUpdated | date: 'dd.MM.yyyy - H:mm:ss'}}</strong>
 </p>

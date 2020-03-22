@@ -1,0 +1,13 @@
+<h4>{{data.BEZ}} {{data.GEN}} {{data.BL}}</h4>
+<p *ngIf="data.countiesData === undefined || data.countiesData === null || data.countiesData.length < 1">
+  {{ 'no_data' | translate }}
+</p>
+<p *ngIf="data.countiesData != null">
+  {{"html_rki_marker.death_rate" | translate}}: <strong>{{data.countiesData[data.countiesData.length - 1].death_rate | number: '1.2-2'}}%</strong><br>
+  {{"html_rki_marker.cases" | translate}}: <strong>{{data.countiesData[data.countiesData.length - 1].cases}}</strong><br>
+  {{"html_rki_marker.deaths" | translate}}: <strong>{{data.countiesData[data.countiesData.length - 1].deaths}}</strong><br>
+  {{"html_rki_marker.cases_per_100k" | translate}}: <strong>{{data.countiesData[data.countiesData.length - 1].cases_per_100k | number: '1.2-2'}}</strong><br>
+  {{"html_rki_marker.cases_per_population" | translate}}: <strong>{{data.countiesData[data.countiesData.length - 1].cases_per_population | number: '1.2-2'}}</strong><br>
+  {{'htmlmarker.last_update' | translate}}: <strong>{{data.countiesData[data.countiesData.length - 1].time | date: 'dd.MM.yyyy - H:mm:ss'}}</strong>
+
+</p>

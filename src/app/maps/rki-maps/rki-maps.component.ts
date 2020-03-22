@@ -1,66 +1,91 @@
-import {Component, OnInit, ComponentFactoryResolver, ComponentRef, Injector, DoCheck, OnDestroy, Injectable} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ComponentFactoryResolver,
+  ComponentRef,
+  Injector,
+  DoCheck,
+  OnDestroy,
+  ViewChild,
+  Injectable
+} from '@angular/core';
 import {tileLayer, latLng, marker, Marker, Icon, DivIcon} from 'leaflet';
 
 
 import {DataService} from '../../service/data.service';
 import {HTMLMarkerComponent} from '../../htmlmarker/htmlmarker.component';
+import {HtmlRkiMarkerComponent} from '../../html-rki-marker/html-rki-marker.component';
 
 interface MarkerMetaData {
   name: String;
   markerInstance: Marker;
-  componentInstance: ComponentRef<HTMLMarkerComponent>
+  componentInstance: ComponentRef<HtmlRkiMarkerComponent>
 }
 
-
 @Component({
-  selector: 'app-live-data',
-  templateUrl: './live-data.component.html',
-  styleUrls: ['./live-data.component.sass'],
+  selector: 'app-rki-maps',
+  templateUrl: './rki-maps.component.html',
+  styleUrls: ['./rki-maps.component.sass'],
 
 })
-export class LiveDataComponent implements OnInit {
+export class RkiMapsComponent implements OnInit {
   loaded = false;
-  map;
+  rkiMap;
   markers: any[] = [];
   options = {
     layers: [
       tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png')
     ],
-    zoom: 6.47,
+    zoom: 5,
     center: latLng(51.165691, 10.451526)
   };
 
   constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector) {
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    console.log('HYYY');
   }
-  onResite(event){
-    console.log(event);
+
+  ngOnInit(): void {
+    console.log('HEy');
   }
 
   drawNew() {
-    this.map.invalidateSize();
 
   }
+
   onMapReady(map) {
+
+
     // get a local reference to the map as we need it later
-    this.map = map;
-    this.dataService.getData().subscribe((data: any) => {
+    this.rkiMap = map;
+
+    setInterval(() => {
+      this.rkiMap.invalidateSize();
+
+    },1000)
+
+
+    this.dataService.getRKIData().subscribe((data: any) => {
       this.markers = data;
       this.loaded = true;
+
 
       this.addMarker();
     });
 
+
   }
 
   addMarker() {
+    console.log(this.markers);
+
     // simply iterate over the array of markers from our data service
     // and add them to the map
     for (const entry of this.markers) {
       // dynamically instantiate a HTMLMarkerComponent
-      const factory = this.resolver.resolveComponentFactory(HTMLMarkerComponent);
+      const factory = this.resolver.resolveComponentFactory(HtmlRkiMarkerComponent);
 
       // we need to pass in the dependency injector
       const component = factory.create(this.injector);
@@ -72,8 +97,9 @@ export class LiveDataComponent implements OnInit {
       // s.t. its template syncs with the data we passed in
       component.changeDetectorRef.detectChanges();
 
+
       // create a new Leaflet marker at the given position
-      if(entry.latitude !== undefined && entry.longitude !== undefined) {
+      if (entry.latitude !== undefined && entry.longitude !== undefined) {
         let m = marker([Number.parseFloat(entry.latitude), Number.parseFloat(entry.longitude)]);
 
         // pass in the HTML from our dynamic component
@@ -92,7 +118,7 @@ export class LiveDataComponent implements OnInit {
         m.bindPopup(popupContent).openPopup();
 
         // finally add the marker to the map s.t. it is visible
-        m.addTo(this.map);
+        m.addTo(this.rkiMap);
 
         // add a metadata object into a local array which helps us
         // keep track of the instantiated markers for removing/disposing them later

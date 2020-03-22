@@ -1,9 +1,11 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="changeTab($event)">
   <mat-tab label="{{'home.tabs.live_data' | translate }}">
-
     <app-live-data></app-live-data>
-
   </mat-tab>
-  <mat-tab label="{{'home.tabs.rki' | translate }}"> Content 2</mat-tab>
-  <mat-tab label="{{'home.tabs.risk_locations' | translate }}"> Content 3</mat-tab>
+  <mat-tab label="{{'home.tabs.rki' | translate }}">
+    <app-rki-maps></app-rki-maps>
+  </mat-tab>
+  <mat-tab label="{{'home.tabs.risk_locations' | translate }}">
+    <app-risk-locations></app-risk-locations>
+  </mat-tab>
 </mat-tab-group>
