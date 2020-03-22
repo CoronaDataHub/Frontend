@@ -3,11 +3,11 @@
   {{ 'no_data' | translate }}
 </p>
 <p *ngIf="data.countiesData != null">
-  Todesrate: {{data.countiesData[data.countiesData.length - 1].death_rate}}%<br>
-  Fälle: {{data.countiesData[data.countiesData.length - 1].cases}}<br>
-  Gestorbene: {{data.countiesData[data.countiesData.length - 1].deaths}}<br>
-  Erkrankte pro 100.000 Einwohner: {{data.countiesData[data.countiesData.length - 1].cases_per_100k}}<br>
-  Erkrankte pro Einwohner: {{data.countiesData[data.countiesData.length - 1].cases_per_population}}<br>
+  {{"html_rki_marker.death_rate" | translate}}: {{data.countiesData[data.countiesData.length - 1].death_rate}}%<br>
+  {{"html_rki_marker.cases" | translate}}: {{data.countiesData[data.countiesData.length - 1].cases}}<br>
+  {{"html_rki_marker.deaths" | translate}}: {{data.countiesData[data.countiesData.length - 1].deaths}}<br>
+  {{"html_rki_marker.cases_per_100k" | translate}}: {{data.countiesData[data.countiesData.length - 1].cases_per_100k}}<br>
+  {{"html_rki_marker.cases_per_population" | translate}}: {{data.countiesData[data.countiesData.length - 1].cases_per_population}}<br>
   {{'htmlmarker.last_update' | translate}}: <strong>{{data.countiesData[data.countiesData.length - 1].time | date: 'dd.MM.yyyy - H:mm:ss'}}</strong>
 
 </p>
