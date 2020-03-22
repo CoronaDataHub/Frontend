@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {LatLngExpression} from 'leaflet';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
 export class Marker {
@@ -26,7 +26,10 @@ export class DataService {
   }
 
   getData(){
-    return this.http.get(environment.backendHost+"/api/v1/coronavirusapp/getPlaces", {headers: {"APIKEY": environment.apiKey}})
+    return this.http.get(environment.backendHost+"/api/v1/coronavirusapp/getPlaces", {headers:  new HttpHeaders({
+        'x-api-key': environment.apiKey,
+        'Content-Type':  'application/json',
+      })})
   }
 
   getMarkerById(id) {
