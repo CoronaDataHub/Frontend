@@ -2,6 +2,8 @@
   "send_data": {
     "navbar_button_text": "Send us your data api"
   },
+  "risk_locations": "Risk locations",
+  "risk_description": "This function will be added soon!",
   "language": "Language",
   "languages": {
     "de": "German",

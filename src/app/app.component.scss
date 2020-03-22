@@ -39,3 +39,9 @@
   outline: none;
   cursor: pointer;
 }
+
+@media(max-width: 425px) {
+  .mat-toolbar .mat-form-field,a {
+    display: none !important;
+  }
+}

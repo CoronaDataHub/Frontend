@@ -2,6 +2,8 @@
   "send_data": {
     "navbar_button_text": "Sende uns deine Daten-API"
   },
+  "risk_locations": "Risiko Gebiete",
+  "risk_description": "Diese Funktion wird noch hinzugefügt!",
   "language": "Sprache",
   "languages": {
     "de": "Deutsch",
