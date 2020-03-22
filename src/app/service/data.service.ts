@@ -20,13 +20,23 @@ export class DataService {
     public http: HttpClient
   ) {
   }
+
   markers: Marker[] = [];
+
   getMarkers() {
     return this.markers;
   }
 
-  getData(){
-    return this.http.get(environment.backendHost+"/api/v1/coronavirusapp/getPlaces?apikey="+environment.apiKey);
+  getData() {
+    return this.http.get(environment.backendHost + '/api/v1/coronavirusapp/getPlaces?apikey=' + environment.apiKey);
+  }
+
+  getRKIData() {
+    return this.http.get(environment.backendHost + '/api/v1/rki/getCounties?apikey=' + environment.apiKey);
+  }
+
+  getStreetByName(search) {
+    return this.http.get('https://nominatim.openstreetmap.org/search?q=' + search + '&format=json');
   }
 
   getMarkerById(id) {

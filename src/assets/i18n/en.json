@@ -21,7 +21,9 @@
     "sick": "Currently sick",
     "recovered": "Cured",
     "dead": "Died",
-    "last_update": "Last updated"
+    "last_update": "Last updated",
+    "no_data": "No data found!"
+
   },
   "footer": {
     "imprint": "Imprint",

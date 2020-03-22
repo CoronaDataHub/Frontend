@@ -21,7 +21,8 @@
     "sick": "Derzeit erkrankt",
     "recovered": "Geheilt",
     "dead": "Gestorben",
-    "last_update": "Zuletzt aktualisiert"
+    "last_update": "Zuletzt aktualisiert",
+    "no_data": "Keine Daten gefunden!"
   },
   "footer": {
     "imprint": "Impressum",

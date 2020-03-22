@@ -28,6 +28,8 @@ import { environment } from '../environments/environment';
 import { ImpressumComponent } from './impressum/impressum.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
+import { RkiMapsComponent } from './maps/rki-maps/rki-maps.component';
+import { HtmlRkiMarkerComponent } from './html-rki-marker/html-rki-marker.component';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -35,14 +37,17 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 // @ts-ignore
 // @ts-ignore
 @NgModule({
-  declarations: [
-    AppComponent,
-    LiveDataComponent,
-    HTMLMarkerComponent,
-    HomeComponent,
-    ImpressumComponent,
-    DatenschutzComponent,
-  ],
+    declarations: [
+        AppComponent,
+        LiveDataComponent,
+        HTMLMarkerComponent,
+        HomeComponent,
+        ImpressumComponent,
+        DatenschutzComponent,
+        RkiMapsComponent,
+        RkiMapsComponent,
+        HtmlRkiMarkerComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -67,7 +72,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatSelectModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  entryComponents: [HTMLMarkerComponent],
+  entryComponents: [HTMLMarkerComponent, HtmlRkiMarkerComponent],
   providers: [DataService, CookieService],
   bootstrap: [AppComponent]
 })

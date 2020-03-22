@@ -1,0 +1,22 @@
+<!--<h3>{{ data.name }}</h3>-->
+<!--<p *ngIf="data.dataHistories === undefined || data.dataHistories === null || data.dataHistories.length < 1">-->
+<!--  {{ 'no_data' | translate }}-->
+<!--</p>-->
+
+<!--<p *ngIf="data.dataHistories != null">-->
+<!--  {{'htmlmarker.infected' | translate}}: <strong>{{data?.dataHistories[data?.dataHistories?.length - 1].infected}}</strong><br>-->
+<!--  {{'htmlmarker.sick' | translate}}: <strong>{{data?.dataHistories[data?.dataHistories?.length - 1].sick}}</strong><br>-->
+<!--  {{'htmlmarker.recovered' | translate}}: <strong>{{data?.dataHistories[data?.dataHistories?.length - 1].recovered}}</strong><br>-->
+<!--  {{'htmlmarker.dead' | translate}}: <strong>{{data?.dataHistories[data?.dataHistories?.length - 1].dead}}</strong><br>-->
+<!--  {{'htmlmarker.last_update' | translate}}: <strong>{{data?.lastUpdated | date: 'dd.MM.yyyy - H:mm:ss'}}</strong>-->
+<!--</p>-->
+
+
+<h4>{{data.BEZ}} {{data.GEN}} {{data.BL}}</h4>
+<p>
+  Todesrate: {{data.countiesData[data.countiesData.length -1].death_rate}}%<br>
+  Fälle: {{data.countiesData[data.countiesData.length -1].cases}}<br>
+  Gestorbene: {{data.countiesData[data.countiesData.length -1].deaths}}<br>
+  Erkrankte pro 100.000 Einwohner: {{data.countiesData[data.countiesData.length -1].cases_per_100k}}<br>
+  Erkrankte pro Einwohner: {{data.countiesData[data.countiesData.length -1].cases_per_population}}<br>
+</p>

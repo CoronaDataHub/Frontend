@@ -20,7 +20,12 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 	 - [Leaflet](https://leafletjs.com/reference-1.6.0.html)
 	 - [Material Angular](https://material.angular.io/guide/theming)
 -  [Spark Java](http://sparkjava.com/documentation) - The RestAPI for the web application  
--  [RethinkDB](https://rethinkdb.com/docs) - The database in which the data is stored and managed
+-  [RethinkDB](https://rethinkdb.com/docs) - The database in which the data is stored and 
+
+# Demo-Images
+![alt Live-Map](images/live-map.png)
+![alt Details](images/details.png)
+
   
 # Contributors  
  - [Florian Z.](https://github.com/Gomze) - @Gomze  
