@@ -17,18 +17,10 @@ interface MarkerMetaData {
   styleUrls: ['./live-data.component.sass'],
 
 })
-export class LiveDataComponent implements OnInit, DoCheck {
-  ngOnInit(): void {
-    // change detection on them.
-    this.markers.forEach(entry => {
-      entry.componentInstance.changeDetectorRef.detectChanges();
-    });
-
-
-  }
+export class LiveDataComponent implements OnInit {
   loaded = false;
   map;
-  markers: MarkerMetaData[] = [];
+  markers: any[] = [];
   options = {
     layers: [
       tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png')
@@ -40,22 +32,26 @@ export class LiveDataComponent implements OnInit, DoCheck {
   constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector) {
   }
 
+  ngOnInit(): void {
+  }
+
   onMapReady(map) {
     // get a local reference to the map as we need it later
     this.map = map;
     this.dataService.getData().subscribe((data: any) => {
       this.markers = data;
       this.loaded = true;
-      this.addMarker();
 
+      this.addMarker();
     });
+
 
   }
 
   addMarker() {
     // simply iterate over the array of markers from our data service
     // and add them to the map
-    for (const entry of this.dataService.getMarkers()) {
+    for (const entry of this.markers) {
       // dynamically instantiate a HTMLMarkerComponent
       const factory = this.resolver.resolveComponentFactory(HTMLMarkerComponent);
 
@@ -69,69 +65,36 @@ export class LiveDataComponent implements OnInit, DoCheck {
       // s.t. its template syncs with the data we passed in
       component.changeDetectorRef.detectChanges();
 
-
       // create a new Leaflet marker at the given position
-      let m = marker([Number.parseFloat(entry.latitude), Number.parseFloat(entry.longitude)]);
+      if(entry.latitude !== undefined && entry.longitude !== undefined) {
+        let m = marker([Number.parseFloat(entry.latitude), Number.parseFloat(entry.longitude)]);
 
-      // pass in the HTML from our dynamic component
-      const popupContent = component.location.nativeElement;
+        // pass in the HTML from our dynamic component
+        const popupContent = component.location.nativeElement;
 
-      let test = Icon.extend({
-        options: {
-          iconUrl: './assets/marker-icon.png',
+        let test = Icon.extend({
+          options: {
+            iconUrl: './assets/marker-icon.png',
 
-        }
-      });
+          }
+        });
 
-      m.setIcon(new test);
+        m.setIcon(new test);
 
-      // add popup functionality
-      m.bindPopup(popupContent).openPopup();
+        // add popup functionality
+        m.bindPopup(popupContent).openPopup();
 
-      // finally add the marker to the map s.t. it is visible
-      m.addTo(this.map);
+        // finally add the marker to the map s.t. it is visible
+        m.addTo(this.map);
 
-      // add a metadata object into a local array which helps us
-      // keep track of the instantiated markers for removing/disposing them later
-      this.markers.push({
-        name: entry.name,
-        markerInstance: m,
-        componentInstance: component
-      });
+        // add a metadata object into a local array which helps us
+        // keep track of the instantiated markers for removing/disposing them later
+        this.markers.push({
+          name: entry.name,
+          markerInstance: m,
+          componentInstance: component
+        });
+      }
     }
   }
-
-  removeMarker(marker) {
-    // remove it from the array meta objects
-    const idx = this.markers.indexOf(marker);
-    this.markers.splice(idx, 1);
-
-    // remove the marker from the map
-    marker.markerInstance.removeFrom(this.map);
-
-    // destroy the component to avoid memory leaks
-    marker.componentInstance.destroy();
-  }
-
-  // simulate some change which needs
-  // to trigger updates on our dynamic components
-  mutateMarkerData() {
-    // this provocates changes which the components on the markers have to re-render
-    this.dataService.changeMarkerData();
-  }
-
-  // This is a lifecycle method of an Angular component which gets invoked whenever for
-  // our component change detection is triggered
-  ngDoCheck() {
-    // since our components are dynamic, we need to manually iterate over them and trigger
-    // change detection on them.
-    // if(this.loaded){
-    //   this.markers.forEach(entry => {
-    //     entry.componentInstance.changeDetectorRef.detectChanges();
-    //   });
-    // }
-
-  }
-
-
 }

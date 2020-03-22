@@ -20,7 +20,7 @@ export class DataService {
     public http: HttpClient
   ) {
   }
-  markers: Marker[];
+  markers: Marker[] = [];
   getMarkers() {
     return this.markers;
   }
