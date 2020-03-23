@@ -13,19 +13,16 @@ import {
   MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
-import {LiveDataComponent} from './maps/live-data/live-data.component';
+import {LiveDataComponent} from './components/maps/live-data/live-data.component';
 import {AngularOpenlayersModule} from 'ngx-openlayers';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {HTMLMarkerComponent} from './htmlmarker/htmlmarker.component';
-import {DataService} from './service/data.service';
+import {DataService} from './services/data.service';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {CookieService} from 'ngx-cookie-service';
-import { HomeComponent } from './home/home.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { ImpressumComponent } from './impressum/impressum.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { RkiMapsComponent } from './maps/rki-maps/rki-maps.component';
@@ -34,12 +31,22 @@ import { RiskLocationsComponent } from './risk-locations/risk-locations.componen
 import { CreditsComponent } from './credits/credits.component';
 import { PopupComponent } from './maps/rki-maps/popup/popup.component';
 import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
+import {RkiMapsComponent} from './components/maps/rki-maps/rki-maps.component';
+import {RiskLocationsComponent} from './components/risk-locations/risk-locations.component';
+import {PopupComponent} from './components/maps/rki-maps/popup/popup.component';
+import {ChangelogComponent} from './components/changelog/changelog.component';
+import {HomeComponent} from './components/home/home.component';
+import {HTMLMarkerComponent} from './components/htmlmarker/htmlmarker.component';
+import {ImpressumComponent} from './components/impressum/impressum.component';
+import {DatenschutzComponent} from './components/datenschutz/datenschutz.component';
+import {HtmlRkiMarkerComponent} from './components/html-rki-marker/html-rki-marker.component';
+import {CreditsComponent} from './components/credits/credits.component';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
-// @ts-ignore
-// @ts-ignore
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -56,6 +63,21 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         PopupComponent,
         CookieBannerComponent,
     ],
+  declarations: [
+    AppComponent,
+    LiveDataComponent,
+    HTMLMarkerComponent,
+    HomeComponent,
+    ImpressumComponent,
+    DatenschutzComponent,
+    RkiMapsComponent,
+    RkiMapsComponent,
+    HtmlRkiMarkerComponent,
+    RiskLocationsComponent,
+    CreditsComponent,
+    PopupComponent,
+    ChangelogComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -78,13 +100,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     MatFormFieldModule,
     MatSelectModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     MatDialogModule
   ],
   entryComponents: [HTMLMarkerComponent, HtmlRkiMarkerComponent, PopupComponent],
   providers: [DataService, CookieService],
   bootstrap: [AppComponent],
-
 })
 export class AppModule {
 }

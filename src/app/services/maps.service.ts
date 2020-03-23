@@ -1,9 +1,8 @@
-import {Component, ComponentFactory, ComponentFactoryResolver, Injectable, Injector} from '@angular/core';
+import {Component, ComponentFactoryResolver, Injectable, Injector} from '@angular/core';
 import {Icon, latLng, marker, tileLayer} from 'leaflet';
 import {DataService} from './data.service';
-import {HTMLMarkerComponent} from '../htmlmarker/htmlmarker.component';
-import {Type} from '@angular/core/src/type';
-import {HtmlRkiMarkerComponent} from '../html-rki-marker/html-rki-marker.component';
+import {HTMLMarkerComponent} from '../components/htmlmarker/htmlmarker.component';
+import {HtmlRkiMarkerComponent} from '../components/html-rki-marker/html-rki-marker.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +10,17 @@ import {HtmlRkiMarkerComponent} from '../html-rki-marker/html-rki-marker.compone
 export class MapsService {
 
   maps: any[] = [];
-
   markers: any[] = [];
+  components: Component[] = [];
+
+  // options
   options_rki = {
     layers: [
       tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png')
     ],
-    zoom: 5,
+    zoom: 6.47,
     center: latLng(51.165691, 10.451526)
   };
-
   options_live = {
     layers: [
       tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png')
@@ -29,29 +29,38 @@ export class MapsService {
     center: latLng(51.165691, 10.451526)
   };
 
-  compontents: Component[] = [];
-
   constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector) {
     this.addComponent('HTMLMarkerComponent', HTMLMarkerComponent);
     this.addComponent('HtmlRkiMarkerComponent', HtmlRkiMarkerComponent);
   }
 
-  ngOnInit(): void {
-  }
-
-  onResite(event) {
-    console.log(event);
-  }
-
+  /**
+   * Add the component
+   *
+   * @param name
+   * @param component
+   */
   addComponent(name, component) {
-    this.compontents[name] = {};
-    this.compontents[name] = component;
+    this.components[name] = {};
+    this.components[name] = component;
   }
 
-  drawMap(name): void{
+  /**
+   * Draw the map
+   *
+   * @param name
+   */
+  drawMap(name): void {
     this.maps[name].map.invalidateSize();
   }
 
+  /**
+   * Fires when the map is ready
+   *
+   * @param map
+   * @param name
+   * @param httpPipe
+   */
   onMapReady(map, name, httpPipe) {
     if (this.maps[name] == null || this.maps[name] == undefined) {
       this.maps[name] = {};
@@ -66,26 +75,26 @@ export class MapsService {
 
       this.addMarker(name);
     });
-
-
   }
 
+  /**
+   * Add the marker to the map
+   *
+   * @param name
+   */
   addMarker(name) {
     // simply iterate over the array of markers from our data service
     // and add them to the map
     for (const entry of this.markers[name]) {
-      // dynamically instantiate a HTMLMarkerCo
-      // mponent
-
       let factory = null;
 
       switch (name) {
-        case "live_data": {
+        case 'live_data': {
           factory = this.resolver.resolveComponentFactory(HTMLMarkerComponent);
           break;
         }
 
-        case "rki": {
+        case 'rki': {
           factory = this.resolver.resolveComponentFactory(HtmlRkiMarkerComponent);
 
           break;
