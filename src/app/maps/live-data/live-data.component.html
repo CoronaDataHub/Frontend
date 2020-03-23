@@ -8,7 +8,7 @@
 <div style="height: 80vh; width: 100%"
      leaflet
      [leafletOptions]="this.maps.options_live"
-     (leafletMapReady)="this.maps.onMapReady($event, 'live_data',this.dataService.getData(),'HTMLMarkerComponent')"
+     (leafletMapReady)="this.maps.onMapReady($event, 'live_data',this.dataService.getData())"
       (resize)="onResite($event)"
 >
 </div>

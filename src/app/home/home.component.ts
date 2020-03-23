@@ -4,6 +4,7 @@ import {LiveDataComponent} from '../maps/live-data/live-data.component';
 import {MatDialog} from '@angular/material';
 import {PopupComponent} from '../maps/rki-maps/popup/popup.component';
 import {CookieService} from 'ngx-cookie-service';
+import {MapsService} from '../service/maps.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    public cookieService: CookieService
+    public cookieService: CookieService,
+    public maps: MapsService
   ) {
   }
 
@@ -23,14 +25,19 @@ export class HomeComponent implements OnInit {
   }
 
   changeTab(event) {
-    if (event.index == 1) {
-      if (!this.popupIsShown){
-        if(!this.cookieService.get("rki_popup_not_show_anymore")){
+    if (event.index == 0) {
+      this.maps.drawMap("live_data")
+    }
+    if (event.index == 1){
+
+      this.maps.drawMap("rki");
 
 
-          this.dialog.open(PopupComponent, {
+    if (!this.popupIsShown) {
+        if (!this.cookieService.get('rki_popup_not_show_anymore')) {
 
-          });
+
+          this.dialog.open(PopupComponent, {});
           this.popupIsShown = true;
         }
       }

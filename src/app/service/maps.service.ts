@@ -15,7 +15,7 @@ export class MapsService {
   markers: any[] = [];
   options_rki = {
     layers: [
-      tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png')
+      tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png')
     ],
     zoom: 5,
     center: latLng(51.165691, 10.451526)
@@ -23,7 +23,7 @@ export class MapsService {
 
   options_live = {
     layers: [
-      tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png')
+      tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png')
     ],
     zoom: 6.47,
     center: latLng(51.165691, 10.451526)
@@ -32,8 +32,8 @@ export class MapsService {
   compontents: Component[] = [];
 
   constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector) {
-    this.addComponent("HTMLMarkerComponent",HTMLMarkerComponent);
-    this.addComponent("HtmlRkiMarkerComponent",HtmlRkiMarkerComponent);
+    this.addComponent('HTMLMarkerComponent', HTMLMarkerComponent);
+    this.addComponent('HtmlRkiMarkerComponent', HtmlRkiMarkerComponent);
   }
 
   ngOnInit(): void {
@@ -48,7 +48,11 @@ export class MapsService {
     this.compontents[name] = component;
   }
 
-  onMapReady(map, name, httpPipe, component: any) {
+  drawMap(name): void{
+    this.maps[name].map.invalidateSize();
+  }
+
+  onMapReady(map, name, httpPipe) {
     if (this.maps[name] == null || this.maps[name] == undefined) {
       this.maps[name] = {};
     }
@@ -60,20 +64,37 @@ export class MapsService {
     httpPipe.subscribe((data: any) => {
       this.markers[name] = data;
 
-      this.addMarker(name, component);
+      this.addMarker(name);
     });
 
 
   }
 
-  addMarker(name, component) {
+  addMarker(name) {
     // simply iterate over the array of markers from our data service
     // and add them to the map
     for (const entry of this.markers[name]) {
       // dynamically instantiate a HTMLMarkerCo
       // mponent
-      // @ts-ignore
-      const factory = this.resolver.resolveComponentFactory(this.compontents[component]);
+
+      let factory = null;
+
+      switch (name) {
+        case "live_data": {
+          factory = this.resolver.resolveComponentFactory(HTMLMarkerComponent);
+          break;
+        }
+
+        case "rki": {
+          factory = this.resolver.resolveComponentFactory(HtmlRkiMarkerComponent);
+
+          break;
+        }
+        default: {
+
+          break;
+        }
+      }
 
 
       // we need to pass in the dependency injector
@@ -106,7 +127,7 @@ export class MapsService {
         m.bindPopup(popupContent).openPopup();
 
         // finally add the marker to the map s.t. it is visible
-        m.addTo(this.maps['name']);
+        m.addTo(this.maps[name].map);
 
         // add a metadata object into a local array which helps us
         // keep track of the instantiated markers for removing/disposing them later
