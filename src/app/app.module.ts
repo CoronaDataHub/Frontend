@@ -24,13 +24,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { DatenschutzComponent } from './datenschutz/datenschutz.component';
-import { RkiMapsComponent } from './maps/rki-maps/rki-maps.component';
-import { HtmlRkiMarkerComponent } from './html-rki-marker/html-rki-marker.component';
-import { RiskLocationsComponent } from './risk-locations/risk-locations.component';
-import { CreditsComponent } from './credits/credits.component';
-import { PopupComponent } from './maps/rki-maps/popup/popup.component';
-import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
+import {CookieBannerComponent} from './cookie-banner/cookie-banner.component';
 import {RkiMapsComponent} from './components/maps/rki-maps/rki-maps.component';
 import {RiskLocationsComponent} from './components/risk-locations/risk-locations.component';
 import {PopupComponent} from './components/maps/rki-maps/popup/popup.component';
@@ -48,21 +42,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LiveDataComponent,
-        HTMLMarkerComponent,
-        HomeComponent,
-        ImpressumComponent,
-        DatenschutzComponent,
-        RkiMapsComponent,
-        RkiMapsComponent,
-        HtmlRkiMarkerComponent,
-        RiskLocationsComponent,
-        CreditsComponent,
-        PopupComponent,
-        CookieBannerComponent,
-    ],
   declarations: [
     AppComponent,
     LiveDataComponent,
@@ -76,7 +55,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     RiskLocationsComponent,
     CreditsComponent,
     PopupComponent,
-    ChangelogComponent
+    ChangelogComponent,
+    CookieBannerComponent
   ],
   imports: [
     BrowserModule,
