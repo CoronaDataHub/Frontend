@@ -14,7 +14,13 @@
   "home": {
     "tabs": {
       "live_data": "Aktuelle Daten",
-      "rki": "Genauere Daten aus Deutschland, jedoch ein Tag versetzt (RKI)",
+      "rki": "Landeskreisdaten",
+      "rki_popup":{
+        "title": "Achtung!",
+        "text": "Diese Daten sind genauer, können aber 1-2 Tage alt sein, da diese von einer Schnittstelle des Robert Koch Institut stammen.",
+        "close_button": "Schließen",
+        "show_not_anymore": "Nicht mehr anzeigen"
+      },
       "risk_locations": "Risiko Standorte"
     }
   },

@@ -15,6 +15,8 @@ import {tileLayer, latLng, marker, Marker, Icon, DivIcon} from 'leaflet';
 import {DataService} from '../../service/data.service';
 import {HTMLMarkerComponent} from '../../htmlmarker/htmlmarker.component';
 import {HtmlRkiMarkerComponent} from '../../html-rki-marker/html-rki-marker.component';
+import {MatDialog} from '@angular/material';
+import {PopupComponent} from './popup/popup.component';
 
 interface MarkerMetaData {
   name: String;
@@ -40,7 +42,11 @@ export class RkiMapsComponent implements OnInit {
     center: latLng(51.165691, 10.451526)
   };
 
-  constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector) {
+  constructor(
+    private dataService: DataService,
+    private resolver: ComponentFactoryResolver,
+    private injector: Injector,
+    public dialog: MatDialog) {
   }
 
   ngAfterViewInit(): void {
@@ -48,7 +54,8 @@ export class RkiMapsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('HEy');
+
+
   }
 
   drawNew() {
@@ -64,7 +71,7 @@ export class RkiMapsComponent implements OnInit {
     setInterval(() => {
       this.rkiMap.invalidateSize();
 
-    },1000)
+    }, 1000);
 
 
     this.dataService.getRKIData().subscribe((data: any) => {

@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatFormFieldModule,
   MatSelectModule,
   MatSliderModule,
@@ -32,6 +32,7 @@ import { RkiMapsComponent } from './maps/rki-maps/rki-maps.component';
 import { HtmlRkiMarkerComponent } from './html-rki-marker/html-rki-marker.component';
 import { RiskLocationsComponent } from './risk-locations/risk-locations.component';
 import { CreditsComponent } from './credits/credits.component';
+import { PopupComponent } from './maps/rki-maps/popup/popup.component';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         HtmlRkiMarkerComponent,
         RiskLocationsComponent,
         CreditsComponent,
+        PopupComponent,
     ],
   imports: [
     BrowserModule,
@@ -75,10 +77,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatFormFieldModule,
     MatSelectModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MatDialogModule
   ],
-  entryComponents: [HTMLMarkerComponent, HtmlRkiMarkerComponent],
+  entryComponents: [HTMLMarkerComponent, HtmlRkiMarkerComponent, PopupComponent],
   providers: [DataService, CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule {
 }

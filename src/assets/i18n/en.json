@@ -14,7 +14,13 @@
   "home": {
     "tabs": {
       "live_data": "Current data",
-      "rki": "More precise data from Germany, but one day later (RKI)",
+      "rki": "County data",
+      "rki_popup":{
+        "title": "Be careful!",
+        "text": "These data are more accurate but may be 1-2 days old as they come from an interface of the Robert Koch Institute.",
+        "close_button": "Close",
+        "show_not_anymore": "Display no more"
+      },
       "risk_locations": "Risk locations"
     }
   },
