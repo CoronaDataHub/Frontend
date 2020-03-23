@@ -2,9 +2,9 @@ import {Component, OnInit, ComponentFactoryResolver, ComponentRef, Injector, DoC
 import {tileLayer, latLng, marker, Marker, Icon, DivIcon} from 'leaflet';
 
 
-import {DataService} from '../../service/data.service';
+import {DataService} from '../../../services/data.service';
 import {HTMLMarkerComponent} from '../../htmlmarker/htmlmarker.component';
-import {MapsService} from '../../service/maps.service';
+import {MapsService} from '../../../services/maps.service';
 
 interface MarkerMetaData {
   name: String;
@@ -16,7 +16,7 @@ interface MarkerMetaData {
 @Component({
   selector: 'app-live-data',
   templateUrl: './live-data.component.html',
-  styleUrls: ['./live-data.component.sass'],
+  styleUrls: ['./live-data.component.scss'],
 
 })
 export class LiveDataComponent implements OnInit {
@@ -30,6 +30,4 @@ export class LiveDataComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
 }
