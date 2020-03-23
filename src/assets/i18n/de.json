@@ -39,6 +39,11 @@
     "cases_per_100k": "Erkrankte pro 100.000 Einwohner",
     "cases_per_population": "Erkrankte pro Einwohner"
   },
+  "cookie_banner": {
+    "text_line_one": "Wir nutzen Cookies - ",
+    "text_private_policy": "Datenschutzerklärung",
+    "text_line_two": "Wir sammeln Cookies zur Analyse unserer Besucherdaten und zur Verbesserung unserer Website. Für weitere Informationen zu den von uns verwendeten Cookies öffnen Sie die Einstellungen."
+  },
   "footer": {
     "imprint": "Impressum",
     "privacy_policy": "Datenschutz"

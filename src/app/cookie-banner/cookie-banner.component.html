@@ -1,0 +1,9 @@
+<mat-card *ngIf="!accepted">
+  <mat-card-content>
+    {{"cookie_banner.text_line_one" | translate}} <span routerLink="/datenschutz"> {{"cookie_banner.text_private_policy" | translate}}</span><br>
+    {{"cookie_banner.text_line_two" | translate}}
+    <button mat-button (click)="accept()">Okay</button>
+
+  </mat-card-content>
+
+</mat-card>
