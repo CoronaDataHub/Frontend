@@ -1,7 +1,14 @@
+<!--<div style="height: 80vh; width: 100%"-->
+<!--     leaflet-->
+<!--     [leafletOptions]="options"-->
+<!--     (leafletMapReady)="onMapReady($event)"-->
+<!--      (resize)="onResite($event)"-->
+<!--&gt;-->
+<!--</div>-->
 <div style="height: 80vh; width: 100%"
      leaflet
-     [leafletOptions]="options"
-     (leafletMapReady)="onMapReady($event)"
+     [leafletOptions]="this.maps.options_live"
+     (leafletMapReady)="this.maps.onMapReady($event, 'live_data',this.dataService.getData(),'HTMLMarkerComponent')"
       (resize)="onResite($event)"
 >
 </div>

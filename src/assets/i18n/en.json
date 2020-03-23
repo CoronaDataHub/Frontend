@@ -1,8 +1,8 @@
 {
   "send_data": {
-    "navbar_button_text": "Send us your data api"
+    "navbar_button_text": "Add Data-API"
   },
-  "risk_locations": "Risk locations",
+  "risk_locations": "Risk Locations",
   "risk_description": "This function will be added soon!",
   "language": "Language",
   "languages": {
@@ -13,15 +13,15 @@
   },
   "home": {
     "tabs": {
-      "live_data": "Current data",
-      "rki": "County data",
+      "live_data": "Current Data",
+      "rki": "County Data",
       "rki_popup":{
-        "title": "Be careful!",
-        "text": "These data are more accurate but may be 1-2 days old as they come from an interface of the Robert Koch Institute.",
+        "title": "Warning!",
+        "text": "We received our county data directly from the Robert Koch Institute. The RKI only updates these every 1-2 days. There may be deviations.",
         "close_button": "Close",
-        "show_not_anymore": "Display no more"
+        "show_not_anymore": "Don't show again"
       },
-      "risk_locations": "Risk locations"
+      "risk_locations": "Risk Locations"
     }
   },
   "htmlmarker": {

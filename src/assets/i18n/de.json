@@ -1,6 +1,6 @@
 {
   "send_data": {
-    "navbar_button_text": "Sende uns deine Daten-API"
+    "navbar_button_text": "Daten-API einreichen"
   },
   "risk_locations": "Risiko Gebiete",
   "risk_description": "Diese Funktion wird noch hinzugefügt!",
@@ -17,7 +17,7 @@
       "rki": "Landeskreisdaten",
       "rki_popup":{
         "title": "Achtung!",
-        "text": "Diese Daten sind genauer, können aber 1-2 Tage alt sein, da diese von einer Schnittstelle des Robert Koch Institut stammen.",
+        "text": "Wir erhalten unsere Landkreisdaten direkt vom Robert Koch Institut. Diese werden vom RKI nur alle 1-2 Tage aktualisiert, weshalb es hier zu Abweichungen kommen kann.",
         "close_button": "Schließen",
         "show_not_anymore": "Nicht mehr anzeigen"
       },

@@ -4,6 +4,7 @@ import {tileLayer, latLng, marker, Marker, Icon, DivIcon} from 'leaflet';
 
 import {DataService} from '../../service/data.service';
 import {HTMLMarkerComponent} from '../../htmlmarker/htmlmarker.component';
+import {MapsService} from '../../service/maps.service';
 
 interface MarkerMetaData {
   name: String;
@@ -30,7 +31,12 @@ export class LiveDataComponent implements OnInit {
     center: latLng(51.165691, 10.451526)
   };
 
-  constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector) {
+  constructor(
+    private dataService: DataService,
+    private resolver: ComponentFactoryResolver,
+    private injector: Injector,
+    private maps: MapsService
+    ) {
   }
 
   ngOnInit(): void {
@@ -103,5 +109,9 @@ export class LiveDataComponent implements OnInit {
         });
       }
     }
+  }
+
+  geHTMLMarkerComponent(){
+    return HTMLMarkerComponent
   }
 }
