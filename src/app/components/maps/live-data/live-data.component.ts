@@ -32,10 +32,10 @@ interface MarkerMetaData {
 })
 export class LiveDataComponent implements OnInit {
   constructor(
-    private dataService: DataService,
-    private resolver: ComponentFactoryResolver,
-    private injector: Injector,
-    private maps: MapsService
+    public dataService: DataService,
+    public resolver: ComponentFactoryResolver,
+    public injector: Injector,
+    public maps: MapsService
   ) {
   }
 

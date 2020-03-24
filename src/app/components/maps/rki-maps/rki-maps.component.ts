@@ -33,13 +33,14 @@ interface MarkerMetaData {
 })
 export class RkiMapsComponent implements OnInit {
   constructor(
-    private dataService: DataService,
-    private resolver: ComponentFactoryResolver,
-    private injector: Injector,
+    public dataService: DataService,
+    public resolver: ComponentFactoryResolver,
+    public injector: Injector,
     public dialog: MatDialog,
     public maps: MapsService
-    ) {
+  ) {
   }
+
   options = {
     layers: [
       tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png')
@@ -47,6 +48,7 @@ export class RkiMapsComponent implements OnInit {
     zoom: 6.47,
     center: latLng(51.165691, 10.451526)
   };
+
   ngOnInit(): void {
   }
 }
