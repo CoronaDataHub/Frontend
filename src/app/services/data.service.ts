@@ -38,16 +38,4 @@ export class DataService {
   getStreetByName(search) {
     return this.http.get('https://nominatim.openstreetmap.org/search?q=' + search + '&format=json');
   }
-
-  getMarkerById(id) {
-    return this.markers.filter((entry) => entry.id === id)[0];
-  }
-
-  changeMarkerData() {
-    for (let marker of this.markers) {
-      // just add a random number at the end
-      // marker.description = `Some random value ${Math.random() * 100}`;
-    }
-  }
-
 }

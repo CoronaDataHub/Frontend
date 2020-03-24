@@ -1,0 +1,5 @@
+<div style="height: 80vh; width: 100%"
+     leaflet
+     [leafletOptions]="options"
+     (leafletMapReady)="this.maps.onMapReady($event, 'rki',this.dataService.getRKIData())">
+</div>

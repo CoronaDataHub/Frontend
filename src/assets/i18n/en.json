@@ -1,8 +1,8 @@
 {
   "send_data": {
-    "navbar_button_text": "Send us your data api"
+    "navbar_button_text": "Add Data-API"
   },
-  "risk_locations": "Risk locations",
+  "risk_locations": "Risk Locations",
   "risk_description": "This function will be added soon!",
   "language": "Language",
   "languages": {
@@ -13,9 +13,15 @@
   },
   "home": {
     "tabs": {
-      "live_data": "Current data",
-      "rki": "More precise data from Germany, but one day later (RKI)",
-      "risk_locations": "Risk locations"
+      "live_data": "Current Data",
+      "rki": "County Data",
+      "rki_popup":{
+        "title": "Warning!",
+        "text": "We received our county data directly from the Robert Koch Institute. The RKI only updates these every 1-2 days. There may be deviations.",
+        "close_button": "Close",
+        "show_not_anymore": "Don't show again"
+      },
+      "risk_locations": "Risk Locations"
     }
   },
   "htmlmarker": {
@@ -33,6 +39,11 @@
     "deaths": "Died",
     "cases_per_100k": "Patients per 100,000 inhabitants",
     "cases_per_population": "Patients per population"
+  },
+  "cookie_banner": {
+    "text_line_one": "We use cookies - ",
+    "text_private_policy": "Privacy policy",
+    "text_line_two": "We may place these for analysis of our visitor data, to improve our website, show personalised content and to give you a great website experience. For more information about the cookies we use open the settings."
   },
   "footer": {
     "imprint": "Imprint",

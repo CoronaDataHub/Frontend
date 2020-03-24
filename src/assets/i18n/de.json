@@ -1,6 +1,6 @@
 {
   "send_data": {
-    "navbar_button_text": "Sende uns deine Daten-API"
+    "navbar_button_text": "Daten-API einreichen"
   },
   "risk_locations": "Risiko Gebiete",
   "risk_description": "Diese Funktion wird noch hinzugefügt!",
@@ -14,7 +14,13 @@
   "home": {
     "tabs": {
       "live_data": "Aktuelle Daten",
-      "rki": "Genauere Daten aus Deutschland, jedoch ein Tag versetzt (RKI)",
+      "rki": "Landeskreisdaten",
+      "rki_popup":{
+        "title": "Achtung!",
+        "text": "Wir erhalten unsere Landkreisdaten direkt vom Robert Koch Institut. Diese werden vom RKI nur alle 1-2 Tage aktualisiert, weshalb es hier zu Abweichungen kommen kann.",
+        "close_button": "Schließen",
+        "show_not_anymore": "Nicht mehr anzeigen"
+      },
       "risk_locations": "Risiko Standorte"
     }
   },
@@ -32,6 +38,11 @@
     "deaths": "Gestorben",
     "cases_per_100k": "Erkrankte pro 100.000 Einwohner",
     "cases_per_population": "Erkrankte pro Einwohner"
+  },
+  "cookie_banner": {
+    "text_line_one": "Wir nutzen Cookies - ",
+    "text_private_policy": "Datenschutzerklärung",
+    "text_line_two": "Wir sammeln Cookies zur Analyse unserer Besucherdaten und zur Verbesserung unserer Website. Für weitere Informationen zu den von uns verwendeten Cookies öffnen Sie die Einstellungen."
   },
   "footer": {
     "imprint": "Impressum",

@@ -27,6 +27,13 @@
   }
 }
 
+@media(max-width: 425px) {
+  .footer {
+    height: auto !important;
+    display: block !important;
+  }
+}
+
 .main-logo {
   width: 40px;
 }
