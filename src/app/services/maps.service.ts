@@ -13,22 +13,6 @@ export class MapsService {
   markers: any[] = [];
   components: Component[] = [];
 
-  // options
-  options_rki = {
-    layers: [
-      tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png')
-    ],
-    zoom: 6.47,
-    center: latLng(51.165691, 10.451526)
-  };
-  options_live = {
-    layers: [
-      tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png')
-    ],
-    zoom: 6.47,
-    center: latLng(51.165691, 10.451526)
-  };
-
   constructor(private dataService: DataService, private resolver: ComponentFactoryResolver, private injector: Injector) {
     this.addComponent('HTMLMarkerComponent', HTMLMarkerComponent);
     this.addComponent('HtmlRkiMarkerComponent', HtmlRkiMarkerComponent);
@@ -62,6 +46,7 @@ export class MapsService {
    * @param httpPipe
    */
   onMapReady(map, name, httpPipe) {
+    map.invalidateSize();
     if (this.maps[name] == null || this.maps[name] == undefined) {
       this.maps[name] = {};
     }
@@ -75,9 +60,6 @@ export class MapsService {
 
       this.addMarker(name);
     });
-
-
-
   }
 
   /**

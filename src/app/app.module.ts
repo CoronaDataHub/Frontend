@@ -24,7 +24,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {CookieBannerComponent} from './cookie-banner/cookie-banner.component';
+import {CookieBannerComponent} from './components/cookie-banner/cookie-banner.component';
 import {RkiMapsComponent} from './components/maps/rki-maps/rki-maps.component';
 import {RiskLocationsComponent} from './components/risk-locations/risk-locations.component';
 import {PopupComponent} from './components/maps/rki-maps/popup/popup.component';
