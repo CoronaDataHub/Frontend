@@ -75,6 +75,9 @@ export class MapsService {
 
       this.addMarker(name);
     });
+
+
+
   }
 
   /**
