@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
 
   changeLanguage(event) {
     document.cookie = 'lang=' + event.value;
-    
+
     this.translate.use(event.value);
     this.usersLanguage = event.value;
   }
