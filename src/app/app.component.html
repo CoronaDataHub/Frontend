@@ -4,7 +4,12 @@
 
   <!-- This fills the remaining space of the current row -->
   <span class="own-navbar-right-align"></span>
-  <mat-form-field >
+  <a style="margin-left: 20px; color: white; text-decoration: none;" mat-button routerLink="/credits">{{ 'credits.navbar' | translate}}</a>
+
+  <a style="margin-left: 20px; color: white; text-decoration: none;" mat-button
+     href="mailto:contact@corona-datahub.com?subject=Data-API">{{ 'send_data.navbar_button_text' | translate}}</a>
+
+  <mat-form-field>
     <mat-label>{{'language' | translate}}</mat-label>
     <mat-select (selectionChange)="changeLanguage($event)" [value]="usersLanguage">
       <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">
@@ -13,12 +18,13 @@
     </mat-select>
   </mat-form-field>
 
-  <a style="margin-left: 20px; color: white; text-decoration: none;" mat-button href="mailto:contact@corona-datahub.com?subject=Data-API">{{ 'send_data.navbar_button_text' | translate}}</a>
 
 </mat-toolbar>
 
 <router-outlet></router-outlet>
-<app-cookie-banner ></app-cookie-banner>
+<app-cookie-banner></app-cookie-banner>
 <div class="footer">
-  <span>© 2020 Corona-DataHub</span> | <span routerLink="/impressum">{{ 'footer.imprint' | translate }}</span> | <span routerLink="/datenschutz">{{ 'footer.privacy_policy' | translate }}</span> | <span routerLink="/changelog">Changelog</span>
+  <span>© 2020 Corona-DataHub</span> | <span routerLink="/impressum">{{ 'footer.imprint' | translate }}</span> | <span
+  routerLink="/datenschutz">{{ 'footer.privacy_policy' | translate }}</span> | <span
+  routerLink="/changelog">Changelog</span>
 </div>
