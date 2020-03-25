@@ -7,7 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule, MatDialogModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatGridListModule,
   MatSelectModule,
   MatSliderModule,
   MatTabsModule,
@@ -81,7 +81,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatFormFieldModule,
     MatSelectModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ],
   entryComponents: [HTMLMarkerComponent, HtmlRkiMarkerComponent, PopupComponent],
   providers: [DataService, CookieService],
